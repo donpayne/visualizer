@@ -87,5 +87,4 @@ class Visualizer {
     }
 }
 
-const app = new Visualizer('Goodnight_Goodnight.mp3');
-app.renderFrame(0);
+new Visualizer('Goodnight_Goodnight.mp3').renderFrame(0);
