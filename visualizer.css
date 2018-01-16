@@ -1,6 +1,6 @@
 canvas {
     content: "";
-    background: #012;
+    background: #141414;
     margin: 0;
     position: absolute;
     top: 0;
@@ -10,5 +10,5 @@ canvas {
 }
 
 canvas:after {
-    background: linear-gradient(rgba(0,17,34,0) 50%, rgba(0,17,34,.3) 50%) top left/100% 8px;
+    background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,.3) 50%) top left/100% 8px;
 }

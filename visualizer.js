@@ -44,7 +44,7 @@ class Visualizer {
         this.analyser.getByteFrequencyData(this.audioData);
 
         // prepare canvas
-        ctx.fillStyle = 'rgba(0,17,34,.02)'; //#00112204';
+        ctx.fillStyle = 'rgba(0,0,0,.02)';
         ctx.fillRect(0, 0, W, H);
         ctx.save();
 
@@ -70,7 +70,7 @@ class Visualizer {
         ctx.strokeStyle = `hsl(${ms / 300}, 50%, 50%)`;
     
         // draw line
-        if (this.frameIndex % 4 === 0) {
+        if (this.frameIndex % 2 === 0) {
             ctx.beginPath();
             let len = this.audioData.length;
             for (let i = 0; i < len; i += 2) {

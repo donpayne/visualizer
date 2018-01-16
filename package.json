@@ -1,0 +1,19 @@
+{
+  "name": "visualizer",
+  "version": "1.0.0",
+  "description": "Visual Art Renderer",
+  "main": "app.js",
+  "scripts": {
+    "start": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donpayne/visualizer.git"
+  },
+  "author": "Don Payne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/donpayne/visualizer/issues"
+  },
+  "homepage": "https://github.com/donpayne/visualizer#readme"
+}
