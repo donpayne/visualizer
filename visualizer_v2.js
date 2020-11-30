@@ -1,15 +1,22 @@
 const ctx = display.getContext("2d");
 const W = (display.width = innerWidth);
 const H = (display.height = innerHeight);
+const ctx_fill_r = 0;
+const ctx_fill_g = 0;
+const ctx_fill_b = 0;
+const ctx_fill_a = .10;
+const ctx_lineWidth = 4;
+const ctx_strokeRes = 300;
+const analyser_fftSize = 256;
 
 class Visualizer {
   constructor(track) {
     this.track = track;
     this.frameIndex = 0;
-    this.destW = W / 2;
-    this.destH = H / 6;
-    this.destWShift = W / 2;
-    this.destHShift = H / 3;
+    this.destW = W * .75;
+    this.destH = H * .25;
+    this.destWShift = W * .5;
+    this.destHShift = H * .5;
     this.zoom = 1;
     this.initAudio();
     this.initAudioContext();
@@ -30,7 +37,7 @@ class Visualizer {
 
   initAnalyzer() {
     this.analyser = this.ac.createAnalyser();
-    this.analyser.fftSize = 256;
+    this.analyser.fftSize = analyser_fftSize;
     this.source.connect(this.analyser);
   }
 
@@ -43,13 +50,13 @@ class Visualizer {
     this.analyser.getByteFrequencyData(this.audioData);
 
     // prepare canvas
-    ctx.fillStyle = "rgba(0,0,0,.02)";
+    ctx.fillStyle = `rgba(${ctx_fill_r},${ctx_fill_g},${ctx_fill_b},${ctx_fill_a})`;
     ctx.fillRect(0, 0, W, H);
     ctx.save();
 
     // define destination image
     ctx.translate(this.destWShift, this.destHShift);
-    ctx.lineWidth = 4;
+    ctx.lineWidth = ctx_lineWidth;
 
     // draw destination image
     // See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
@@ -70,7 +77,7 @@ class Visualizer {
 
     // define stroke style
     ctx.globalCompositeOperation = "lighter";
-    ctx.strokeStyle = `hsl(${ms / 300}, 50%, 50%)`;
+    ctx.strokeStyle = `hsl(${ms / ctx_strokeRes}, 50%, 50%)`;
 
     // draw line
     if (this.frameIndex % 2 === 0) {
@@ -78,7 +85,7 @@ class Visualizer {
       let len = this.audioData.length;
       for (let i = 0; i < len; i += 2) {
         let index = i < len / 2 ? i : len - 1 - i;
-        let v = 1 - this.audioData[index] / 256;
+        let v = 1 - this.audioData[index] / analyser_fftSize;
         ctx.lineTo((i / len - 0.5) * this.destW, v * this.destH);
       }
       ctx.stroke();

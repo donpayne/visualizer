@@ -7,7 +7,7 @@ class Visualizer {
     this.track = track;
     this.frameIndex = 0;
     this.destW = W / 2;
-    this.destH = H / 6;
+    this.destH = H / 5;
     this.destWShift = W / 2;
     this.destHShift = H / 3;
     this.zoom = 1.02;
