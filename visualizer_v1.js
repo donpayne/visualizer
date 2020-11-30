@@ -57,11 +57,14 @@ class Visualizer {
       display,
       0, // The X coordinate in the destination canvas at which to place the top-left corner of the source image.
       0, // The Y coordinate in the destination canvas at which to place the top-left corner of the source image.
-      W, // The width to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in width when drawn.
-      H, // The height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in height when drawn.
+      W, // The width to draw the image in the destination canvas. This allows scaling of the drawn image. 
+         // If not specified, the image is not scaled in width when drawn.
+      H, // The height to draw the image in the destination canvas. This allows scaling of the drawn image. 
+         // If not specified, the image is not scaled in height when drawn.
       -this.destWShift * this.zoom, // The X coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context.
       -this.destHShift * this.zoom, // The Y coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context.
-      W * this.zoom, // The width of the sub-rectangle of the source image to draw into the destination context. If not specified, the entire rectangle from the coordinates specified by sx and sy to the bottom-right corner of the image is used.
+      W * this.zoom, // The width of the sub-rectangle of the source image to draw into the destination context. 
+         //If not specified, the entire rectangle from the coordinates specified by sx and sy to the bottom-right corner of the image is used.
       H * this.zoom // The height of the sub-rectangle of the source image to draw into the destination context.
     );
 
