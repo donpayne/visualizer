@@ -12,5 +12,6 @@
   "bugs": {
     "url": "https://github.com/donpayne/visualizer/issues"
   },
-  "homepage": "https://github.com/donpayne/visualizer#readme"
+  "homepage": "https://github.com/donpayne/visualizer#readme",
+  "dependencies": {}
 }

@@ -1,7 +1,6 @@
 "use strict";
 
 const http = require("http");
-const url = require("url");
 const fs = require("fs");
 const path = require("path");
 const port = process.argv[2] || 8080;
@@ -11,8 +10,7 @@ http.createServer(server).listen(port, () => {
 });
 
 function server(req, res) {
-  let pathname = `.${url.parse(req.url).pathname}`;
-
+  let pathname = `.${req.url}`
   if (!fs.existsSync(pathname)) {
     res.statusCode = 404;
     res.end(`File ${pathname} not found!`);
